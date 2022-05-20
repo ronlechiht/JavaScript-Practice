@@ -1,0 +1,29 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "Just example for learning javascript",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronlechiht/JavaScript-Practice.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "training"
+  ],
+  "type": "module",
+  "author": "ron.lechi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ronlechiht/JavaScript-Practice/issues"
+  },
+  "homepage": "https://github.com/ronlechiht/JavaScript-Practice#readme",
+  "devDependencies": {
+    "parcel": "^2.0.1"
+  }
+}

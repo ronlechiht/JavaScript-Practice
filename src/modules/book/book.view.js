@@ -26,10 +26,22 @@ export class BookView {
     this.addBookButton.textContent = 'Add New'
 
     //The book list
-    this.bookList = this.createElement
+    this.bookList = this.createElement('table')
+
+    this.headerList = this.createElement('tr')
+
+    this.isbnBook = this.createElement('th')
+    this.isbnBook.textContent = 'ISBN'
+
+    this.nameBook = this.createElement('th')
+    this.nameBook.textContent = 'Name'
+
+    this.headerList.append(this.isbnBook, this.nameBook)
+
+    this.bookList.append(this.headerList)
 
     //Append the title, search form, add button, book list to the app
-    this.bookApp.append(this.title, this.searchForm, this.addBookButton)
+    this.bookApp.append(this.title, this.searchForm, this.addBookButton, this.bookList)
 
   }
 

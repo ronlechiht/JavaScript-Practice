@@ -1,73 +1,75 @@
-import {createElement} from "../../core/utils.js"
-import {getElement} from "../../core/utils.js"
+import {
+  createElement,
+  getElement,
+} from '../../core/utils.js';
 
 export class BookView {
-  constructor(){
+  constructor() {
     //Book Management div
-    this.bookApp = getElement('.book-management')
+    this.bookApp = getElement('.book-management');
 
     //The title of the book management app
-    this.title = this.renderPageHeader()
+    this.title = this.createPageHeader();
 
     //The top bar
-    this.topbar = this.renderTopBar()
+    this.topBar = this.createTopBar();
 
     //The book list
-    this.bookList = this.renderTableView()
+    this.bookList = this.createTableView();
 
     //Append the title, search form, add button, book list to the app
-    this.bookApp.append(this.title, this.topbar, this.bookList)
+    this.bookApp.append(this.title, this.topBar, this.bookList);
 
   }
 
-  renderPageHeader() {
+  createPageHeader() {
     //The title of the book management app
-    const title = createElement('h1')
-    title.textContent = 'Book Management'
+    const title = createElement('h1');
+    title.textContent = 'Book Management';
 
-    return title
+    return title;
   }
 
-  renderTopBar() {
-    const topbar = createElement('div')
+  createTopBar() {
+    const topBar = createElement('div');
     //The search form
-    const searchForm = createElement('form')
+    const searchForm = createElement('form');
 
-    const searchInput = createElement('input')
-    searchInput.type = 'text'
-    searchInput.placeholder = 'Search by ISBN'
-    searchInput.name = 'search'
+    const searchInput = createElement('input');
+    searchInput.type = 'text';
+    searchInput.placeholder = 'Search by ISBN';
+    searchInput.name = 'search';
 
-    const searchButton = createElement('button')
-    searchButton.textContent = 'Search'
+    const searchButton = createElement('button');
+    searchButton.textContent = 'Search';
 
     //Append the input and search button to the form
-    searchForm.append(searchInput, searchButton)
+    searchForm.append(searchInput, searchButton);
     
     //The add new button
-    const addBookButton = createElement('button')
-    addBookButton.textContent = 'Add New'
+    const addBookButton = createElement('button');
+    addBookButton.textContent = 'Add New';
 
-    topbar.append(searchForm, addBookButton)
+    topBar.append(searchForm, addBookButton);
 
-    return topbar
+    return topBar;
   }
 
-  renderTableView() {
-    const bookList = createElement('table')
+  createTableView() {
+    const bookList = createElement('table');
 
-    const headerList = createElement('tr')
+    const headerList = createElement('tr');
 
-    const isbnBook = createElement('th')
-    isbnBook.textContent = 'ISBN'
+    const isbnBook = createElement('th');
+    isbnBook.textContent = 'ISBN';
 
-    const nameBook = createElement('th')
-    nameBook.textContent = 'Name'
+    const nameBook = createElement('th');
+    nameBook.textContent = 'Name';
 
-    headerList.append(isbnBook, nameBook)
+    headerList.append(isbnBook, nameBook);
 
-    bookList.append(headerList)
+    bookList.append(headerList);
 
-    return bookList
+    return bookList;
   }
 }

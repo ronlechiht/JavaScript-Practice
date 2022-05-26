@@ -1,14 +1,14 @@
-//Create an element with an optional CSS class
+/*Create an element with an optional CSS class*/
 export function createElement(tag, className) {
-  const element = document.createElement(tag)
-  if (className) element.classList.add(className)
+  const element = document.createElement(tag);
+  if (className) element.classList.add(className);
   
-  return element
+  return element;
 }
 
-//Retrieve an element from the DOM
+/*Retrieve an element from the DOM*/
 export function getElement(selector) {
-  const element = document.querySelector(selector)
+  const element = document.querySelector(selector);
 
-  return element
+  return element;
 }

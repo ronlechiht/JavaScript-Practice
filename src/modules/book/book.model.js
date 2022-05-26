@@ -1,30 +1,41 @@
 export class BookModel {
-  constructor(){
-    this.books = [
-      {id: 1, isbnBook: 'ISBN-13',  nameBook: 'Ada Lovelace', authorBook: 'Ada Lovelace', issuedDate: '01/01/1900'}
-    ]
+  constructor({id,isbn,name,author,issued}) {
+    this.id = id;
+    this.isbn = isbn;
+    this.name = name;
+    this.author = author;
+    this.issued = issued;
+  }
+}
+
+export class BookManagerModel {
+  constructor() {
+    this.url = '../../assets/database/db.json';
   }
 
-  addBook(id,isbn,name,author,date) {
-    const book = {
-      id: this.books.length > 0 ? this.books[this.books.length - 1].id + 1:1,
-      isbnBook: isbn,
-      nameBook: name,
-      authorBook: author,
-      issuedDate: date,
+  getBooks() {
+    try {
+      let response = fetch(url);
+      return response.json();
     }
-
-    this.books.push(book)
+    catch(error) {
+      console.log(error);
+    }
   }
 
-  editBook(id,updatedIsbn, updatedName, updatedAuthor, updatedDate) {
-    this.books = this.books.map((book) =>
-      book.id === id ? {id: book.id, isbnBook: updatedIsbn, nameBook: updatedName, 
-      authorBook: updatedAuthor, issuedDate: updatedDate} : book,
-    )
+  add(data) {
+    try {
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+    }
+    catch(error) {
+      console.log(error);
+    }
   }
 
-  deleteBook(id) {
-    this.books = this.books.filter((book) => book.id !== id)
-  }
 }

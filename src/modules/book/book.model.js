@@ -10,32 +10,48 @@ export class BookModel {
 
 export class BookManagerModel {
   constructor() {
-    this.url = '../../assets/database/db.json';
+    this.booksApi = 'http://localhost:3004/books';
   }
 
   getBooks() {
-    try {
-      let response = fetch(url);
-      return response.json();
-    }
-    catch(error) {
-      console.log(error);
-    }
+    fetch(this.booksApi)
+      .then(function(response) {
+        return response.json();
+      });
   }
 
-  add(data) {
-    try {
-      fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-    }
-    catch(error) {
-      console.log(error);
-    }
+  addBook(data) {
+    var options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    };
+
+    fetch(this.booksApi, options);
   }
 
+  editBook(id, data) {
+    var options = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    };
+
+    fetch(this.booksApi+'/'+id, options);
+  } 
+
+  deleteBook(id) {
+    var options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    fetch(this.booksApi+'/'+id, options);
+  }
 }

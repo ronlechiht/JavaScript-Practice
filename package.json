@@ -25,5 +25,8 @@
   "homepage": "https://github.com/ronlechiht/JavaScript-Practice#readme",
   "devDependencies": {
     "parcel": "^2.0.1"
+  },
+  "dependencies": {
+    "json-server": "^0.17.0"
   }
 }

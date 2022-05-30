@@ -13,11 +13,12 @@ export class BookManagerModel {
     this.booksApi = 'http://localhost:3004/books';
   }
 
-  getBooks() {
+  getBooks(callback) {
     fetch(this.booksApi)
       .then(function(response) {
         return response.json();
-      });
+      })
+      .then(callback);
   }
 
   addBook(data) {

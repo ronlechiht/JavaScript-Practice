@@ -15,6 +15,8 @@ Git repo [link](https://github.com/ronlechiht/JavaScript-Practice)
 
 - Install packages `npm install`
 
+- Start server: `npm run start-server`
+
 - Start project: `npm start`
 
 - Open on web: http://localhost:1234
@@ -24,9 +26,11 @@ Git repo [link](https://github.com/ronlechiht/JavaScript-Practice)
 
 ### [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
-### [JavaScript]
+### [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 ### Develop Tools
 
 #### [parcel](https://parceljs.org/getting-started/webapp/)
 Helps you build and run code
+#### [json-server](https://www.npmjs.com/package/json-server)
+Fake a server api

@@ -4,7 +4,8 @@
   "description": "Just example for learning javascript",
   "source": "src/index.html",
   "scripts": {
-    "start": "parcel"
+    "start": "parcel",
+    "start-server": "json-server --watch db.json --port 3004"
   },
   "repository": {
     "type": "git",

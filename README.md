@@ -15,6 +15,8 @@ Git repo [link](https://github.com/ronlechiht/JavaScript-Practice)
 
 - Install packages `npm install`
 
+- Start server: `npm run start-server`
+
 - Start project: `npm start`
 
 - Open on web: http://localhost:1234

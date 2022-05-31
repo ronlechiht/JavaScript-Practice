@@ -13,6 +13,13 @@
       "name": "Toan Cao Cap",
       "author": "Le Chi Son",
       "issued": "23/02/2000"
+    },
+    {
+      "isbn": "isbn-003",
+      "name": "Giai Tich 1",
+      "author": "Le Chi Cu",
+      "issued": "12/02/2012",
+      "id": 3
     }
   ]
 }

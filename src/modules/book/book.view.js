@@ -13,35 +13,35 @@ export class BookView {
   }
 
   renderPageHeader() {
-    var title = document.querySelector('.book-management-title');
+    const title = document.querySelector('.book-management-title');
 
     title.innerHTML = 'Book Management';
   }
 
   renderTopBar() {
-    var searchInput = document.querySelector('.search-input');
+    const searchInput = document.querySelector('.search-input');
     searchInput.type = 'text';
     searchInput.placeholder = 'Search by ISBN';
     searchInput.name = 'search';
 
-    var searchButton = document.querySelector('.search-btn');
+    const searchButton = document.querySelector('.search-btn');
     searchButton.textContent = 'Search';
     
-    var addBookButton = document.querySelector('.add-book-btn');
+    const addBookButton = document.querySelector('.add-book-btn');
     addBookButton.textContent = 'Add New';
   }
 
   renderTableView(books) {
-    var bookTable = document.querySelector('.book-management-table');
+    const bookTable = document.querySelector('.book-management-table');
 
-    var headerTable = `
+    const headerTable = `
       <tr>
         <th>ISBN</th>
         <th>Name</th>
       </tr>
     `;
 
-    var html = books.map(function(book) {
+    const html = books.map(function(book) {
       return `
         <tr>
           <td>${book.isbn}</td>

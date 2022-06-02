@@ -29,12 +29,13 @@ export class BookView {
     const searchButton = document.querySelector('.search-btn');
     searchButton.textContent = 'Search';
     
-    const addBookButton = document.querySelector('.add-book-btn');
-    addBookButton.textContent = 'Add New';
+    const addNewButton = document.querySelector('.add-new-btn');
+    addNewButton.textContent = 'Add New';
   }
 
   renderAddBookForm() {
     const addBookForm = document.querySelector('.book-management-add-new');
+    addBookForm.style.display = 'none';
 
     const addBookFormTitle = createElement('h2');
     addBookFormTitle.textContent = 'Book Management Add New';
@@ -94,6 +95,6 @@ export class BookView {
       `;
     });
 
-    bookTable.innerHTML = headerTable + html.join();
+    bookTable.innerHTML = headerTable + html.join('');
   }
 }

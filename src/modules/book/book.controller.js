@@ -35,9 +35,35 @@ export class BookController {
       const author = document.querySelector('input[name="author-input"]').value;
       const issued = document.querySelector('input[name="issued-input"]').value;
   
-      this.bookManagerModel.addBook({isbn,name,author,issued});
-      hideElement('.book-management-add-new');
-      this.displayBookList();
+      if (this.validateForm({isbn,name,author,issued})) {
+        this.bookManagerModel.addBook({isbn,name,author,issued});
+        hideElement('.book-management-add-new');
+        this.displayBookList();
+      }
     };
+  }
+
+  validateForm(data) {
+    if(data.isbn == '') {
+      alert('Please enter isbn of book!');
+      return false;
+    }
+
+    if(data.name == '') {
+      alert('Please enter name of book!');
+      return false;
+    }
+
+    if(data.author == '') {
+      alert('Please enter author of book!');
+      return false;
+    }
+
+    if(data.issued == '') {
+      alert('Please enter issued date of book!');
+      return false;
+    }
+
+    return true;
   }
 }

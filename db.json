@@ -1,25 +1,4 @@
 {
   "books": [
-    {
-      "isbn": "isbn-001",
-      "name": "Toan Roi Rac",
-      "author": "Le Chi Ron",
-      "issued": "28/06/1998",
-      "id": 1
-    },
-    {
-      "isbn": "isbn-002",
-      "name": "Toan Cao Cap",
-      "author": "Le Chi Son",
-      "issued": "23/02/2000",
-      "id": 2
-    },
-    {
-      "isbn": "isbn-003",
-      "name": "Giai Tich 1",
-      "author": "Le Chi Cu",
-      "issued": "12/12/2012",
-      "id": 3
-    }
   ]
 }

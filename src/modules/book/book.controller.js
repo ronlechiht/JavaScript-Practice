@@ -1,9 +1,15 @@
-import {BookModel} from './book.model.js';
-import {BookView} from './book.view.js';
-
 export class BookController {
-  constructor(bookModel, bookView) {
-    this.bookModel = bookModel;
+  constructor(bookManagerModel, bookView) {
+    this.bookManagerModel = bookManagerModel;
     this.bookView = bookView;
+  }
+
+  async displayBookList() {
+    try {
+      const books = await this.bookManagerModel.getBooks();
+      this.bookView.renderTableView(books);
+    } catch(error) {
+      console.log(error);
+    }
   }
 }

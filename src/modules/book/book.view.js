@@ -5,71 +5,51 @@ import {
 
 export class BookView {
   constructor() {
-    //Book Management div
-    this.bookApp = getElement('.book-management');
-
     //The title of the book management app
-    this.title = this.createPageHeader();
+    this.renderPageHeader();
 
     //The top bar
-    this.topBar = this.createTopBar();
-
-    //The book list
-    this.bookList = this.createTableView();
-
-    //Append the title, search form, add button, book list to the app
-    this.bookApp.append(this.title, this.topBar, this.bookList);
-
+    this.renderTopBar();
   }
 
-  createPageHeader() {
-    //The title of the book management app
-    const title = createElement('h1');
-    title.textContent = 'Book Management';
+  renderPageHeader() {
+    const title = document.querySelector('.book-management-title');
 
-    return title;
+    title.innerHTML = 'Book Management';
   }
 
-  createTopBar() {
-    const topBar = createElement('div');
-    //The search form
-    const searchForm = createElement('form');
-
-    const searchInput = createElement('input');
+  renderTopBar() {
+    const searchInput = document.querySelector('.search-input');
     searchInput.type = 'text';
     searchInput.placeholder = 'Search by ISBN';
     searchInput.name = 'search';
 
-    const searchButton = createElement('button');
+    const searchButton = document.querySelector('.search-btn');
     searchButton.textContent = 'Search';
-
-    //Append the input and search button to the form
-    searchForm.append(searchInput, searchButton);
     
-    //The add new button
-    const addBookButton = createElement('button');
+    const addBookButton = document.querySelector('.add-book-btn');
     addBookButton.textContent = 'Add New';
-
-    topBar.append(searchForm, addBookButton);
-
-    return topBar;
   }
 
-  createTableView() {
-    const bookList = createElement('table');
+  renderTableView(books) {
+    const bookTable = document.querySelector('.book-management-table');
 
-    const headerList = createElement('tr');
+    const headerTable = `
+      <tr>
+        <th>ISBN</th>
+        <th>Name</th>
+      </tr>
+    `;
 
-    const isbnBook = createElement('th');
-    isbnBook.textContent = 'ISBN';
+    const html = books.map(function(book) {
+      return `
+        <tr>
+          <td>${book.isbn}</td>
+          <td>${book.name}</td>
+          <td><a>View Detail</a></td>
+      `;
+    });
 
-    const nameBook = createElement('th');
-    nameBook.textContent = 'Name';
-
-    headerList.append(isbnBook, nameBook);
-
-    bookList.append(headerList);
-
-    return bookList;
+    bookTable.innerHTML = headerTable + html.join();
   }
 }

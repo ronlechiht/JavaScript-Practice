@@ -14,12 +14,7 @@ export class BookManagerModel {
   }
 
   async getBooks() {
-    try {
-      let response = await fetch(this.booksApi);
-      return await response.json();
-    } catch(error) {
-      console.log(error);
-    }
+    return fetch(this.booksApi).then((value) => value.json());
   }
 
   async addBook(data) {

@@ -2,6 +2,8 @@ export class BookController {
   constructor(bookManagerModel, bookView) {
     this.bookManagerModel = bookManagerModel;
     this.bookView = bookView;
+
+    this.bookView.bindOpenCloseModal();
   }
 
   async displayBookList() {

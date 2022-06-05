@@ -97,4 +97,28 @@ export class BookView {
 
     bookTable.innerHTML = headerTable + html.join('');
   }
+
+  bindAddBook(handler) {
+    const addButton = document.querySelector('.add-btn');
+
+    addButton.onclick = () => {
+      const isbn = document.querySelector('input[name="isbn-input"]').value;
+      const name = document.querySelector('input[name="name-input"]').value;
+      const author = document.querySelector('input[name="author-input"]').value;
+      const issued = document.querySelector('input[name="issued-input"]').value;
+  
+      const book = {
+        isbn: isbn,
+        name: name,
+        author: author,
+        issued: issued
+      }
+
+      if (this.validateForm(book)) {
+        handler(book);
+        hideElement('.book-management-add-new');
+        this.displayBookList();
+      }
+    }
+  }
 }

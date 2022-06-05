@@ -7,6 +7,8 @@ export class BookController {
   constructor(bookManagerModel, bookView) {
     this.bookManagerModel = bookManagerModel;
     this.bookView = bookView;
+
+    this.bookView.bindAddBook(this.handleAddBook);
   }
 
   async displayBookList() {
@@ -65,5 +67,9 @@ export class BookController {
     }
 
     return true;
+  }
+
+  handleAddBook = (book) => {
+    this.bookManagerModel.addBook(book);
   }
 }

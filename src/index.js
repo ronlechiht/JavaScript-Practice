@@ -13,5 +13,3 @@ const bookApp = new BookController(new BookManagerModel(), new BookView());
 const borrowingApp = new BorrowingController(new BorrowingModel(), new BorrowingView());
 
 bookApp.displayBookList();
-bookApp.handleAddNewButton();
-bookApp.handleAddBookForm();

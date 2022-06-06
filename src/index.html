@@ -13,16 +13,35 @@
 
   <body>
     <div class="book-management">
-      <h2 class="book-management-title"></h2>
+      <h2 class="book-management-title">book management</h2>
       <div class="book-management-top-bar">
         <form class="search-form">
-          <input class="search-input">
-          <button class="search-btn"></button>
+          <input type="text" placeholder="Search by ISBN" name="search" class="search-input">
+          <button class="search-btn">search</button>
         </form>
-        <button class="add-new-btn"></button>
+        <button class="add-book-btn open-modal-btn">add new</button>
       </div>
-      <div class="book-management-add-new"></div>
-      <table class="book-management-table"></table>
+      <div class="modal">
+        <div class="book-management-add-new modal-content">
+          <span class="close">&times;</span>
+          <h2>book management add new</h2>
+          <label for="isbn-input">isbn</label>
+          <input type="text" name="isbn-input">
+          <label for="name-input">name</label>
+          <input type="text" name="name-input">
+          <label for="author-input">author</label>
+          <input type="text" name="author-input">
+          <label for="issued-input">issued date</label>
+          <input type="text" name="issued-input">
+          <button class="add-btn">add</button>
+        </div>
+      </div>
+      <table class="book-management-table">
+        <tr>
+          <th>isbn</th>
+          <th>name</th>
+        </tr>
+      </table>
     </div>
     <div class="borrowing-returning-management"></div>
   </body>

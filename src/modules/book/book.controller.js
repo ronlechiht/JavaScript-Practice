@@ -8,7 +8,11 @@ export class BookController {
     this.bookManagerModel = bookManagerModel;
     this.bookView = bookView;
 
+<<<<<<< HEAD
     this.bookView.bindAddBook(this.handleAddBook);
+=======
+    this.bookView.bindOpenCloseModal();
+>>>>>>> main
   }
 
   async displayBookList() {

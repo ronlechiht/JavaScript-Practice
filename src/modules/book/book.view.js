@@ -5,41 +5,12 @@ import {
 
 export class BookView {
   constructor() {
-    //The title of the book management app
-    this.renderPageHeader();
 
-    //The top bar
-    this.renderTopBar();
-  }
 
-  renderPageHeader() {
-    const title = document.querySelector('.book-management-title');
-
-    title.innerHTML = 'Book Management';
-  }
-
-  renderTopBar() {
-    const searchInput = document.querySelector('.search-input');
-    searchInput.type = 'text';
-    searchInput.placeholder = 'Search by ISBN';
-    searchInput.name = 'search';
-
-    const searchButton = document.querySelector('.search-btn');
-    searchButton.textContent = 'Search';
-    
-    const addBookButton = document.querySelector('.add-book-btn');
-    addBookButton.textContent = 'Add New';
   }
 
   renderTableView(books) {
     const bookTable = document.querySelector('.book-management-table');
-
-    const headerTable = `
-      <tr>
-        <th>ISBN</th>
-        <th>Name</th>
-      </tr>
-    `;
 
     const html = books.map(function(book) {
       return `
@@ -50,6 +21,22 @@ export class BookView {
       `;
     });
 
-    bookTable.innerHTML = headerTable + html.join();
+    bookTable.innerHTML = bookTable.innerHTML + html.join();
+  }
+
+  bindOpenCloseModal() {
+    const modal = document.querySelector('.modal');
+
+    const openBtn = document.querySelector('.open-modal-btn');
+
+    const closeBtn = document.querySelector('.close');
+
+    openBtn.onclick = () => {
+      modal.style.display = 'block';
+    }
+
+    closeBtn.onclick = () => {
+      modal.style.display = 'none';
+    }
   }
 }

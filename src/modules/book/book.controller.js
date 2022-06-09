@@ -22,6 +22,10 @@ export class BookController {
   }
 
   handleAddBook = (book) => {
-    this.bookManagerModel.addBook(book);
+    if (this.bookView.validateForm(book)) {
+      this.bookManagerModel.addBook(book);
+      this.bookView.renderAddedBook(book);
+      this.bookView.resetInput();
+    }
   }
 }

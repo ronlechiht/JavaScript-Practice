@@ -5,19 +5,31 @@ import {
 
 export class BookView {
   constructor() {
+    //Get input field
+    this.isbn = document.querySelector('input[name="isbn-input"]');
+    this.name = document.querySelector('input[name="name-input"]');
+    this.author = document.querySelector('input[name="author-input"]');
+    this.issued = document.querySelector('input[name="issued-input"]');
+
+    //Get table book and add book modal box 
+    this.bookTable = document.querySelector('.book-management-table');
+    this.modal = document.querySelector('.modal');
+
+    //Get button
+    this.openBtn = document.querySelector('.open-modal-btn');
+    this.closeBtn = document.querySelector('.close');
+    this.addButton = document.querySelector('.add-btn');
 
   }
 
   resetInput() {
-    document.querySelector('input[name="isbn-input"]').value = '';
-    document.querySelector('input[name="name-input"]').value = '';
-    document.querySelector('input[name="author-input"]').value = '';
-    document.querySelector('input[name="issued-input"]').value = '';
+    this.isbn.value = '';
+    this.name.value = '';
+    this.author.value = ''; 
+    this.issued.value = '';
   }
 
   renderTableView(books) {
-    const bookTable = document.querySelector('.book-management-table');
-
     const html = books.map(function(book) {
       return `
         <tr>
@@ -28,12 +40,10 @@ export class BookView {
       `;
     });
 
-    bookTable.innerHTML = bookTable.innerHTML + html.join('');
+    this.bookTable.innerHTML = this.bookTable.innerHTML + html.join('');
   }
 
   renderAddedBook(book) {
-    const bookTable = document.querySelector('.book-management-table');
-
     const html = `
       <tr>
         <td>${book.isbn}</td>
@@ -42,70 +52,53 @@ export class BookView {
       </tr>
     `;
 
-    bookTable.innerHTML = bookTable.innerHTML + html;
+    this.bookTable.innerHTML = this.bookTable.innerHTML + html;
   }
 
   validateForm(data) {
+    var isValidated = true;
     if(data.isbn == '') {
       alert('Please enter isbn of book!');
-      return false;
+      isValidated = false;
     }
 
     if(data.name == '') {
       alert('Please enter name of book!');
-      return false;
+      isValidated = false;
     }
 
     if(data.author == '') {
       alert('Please enter author of book!');
-      return false;
+      isValidated = false;
     }
 
     if(data.issued == '') {
       alert('Please enter issued date of book!');
-      return false;
+      isValidated = false;
     }
 
-    return true;
+    return isValidated;
   }
 
   bindOpenCloseModal() {
-    const modal = document.querySelector('.modal');
-
-    const openBtn = document.querySelector('.open-modal-btn');
-
-    const closeBtn = document.querySelector('.close');
-
-    openBtn.onclick = () => {
-      modal.style.display = 'block';
+    this.openBtn.onclick = () => {
+      this.modal.style.display = 'block';
     }
 
-    closeBtn.onclick = () => {
-      modal.style.display = 'none';
+    this.closeBtn.onclick = () => {
+      this.modal.style.display = 'none';
     }
   }
 
   bindAddBook(handler) {
-    const addButton = document.querySelector('.add-btn');
-
-    addButton.onclick = () => {
-      const isbn = document.querySelector('input[name="isbn-input"]').value;
-      const name = document.querySelector('input[name="name-input"]').value;
-      const author = document.querySelector('input[name="author-input"]').value;
-      const issued = document.querySelector('input[name="issued-input"]').value;
-  
+    this.addButton.onclick = () => {
       const book = {
-        isbn: isbn,
-        name: name,
-        author: author,
-        issued: issued
+        isbn: this.isbn.value,
+        name: this.name.value,
+        author: this.author.value,
+        issued: this.issued.value
       }
-
-      if (this.validateForm(book)) {
-        handler(book);
-        this.renderAddedBook(book);
-        this.resetInput();
-      }
+      handler(book);
     }
   }
 }

@@ -17,16 +17,14 @@ export class BookManagerModel {
     return fetch(this.booksApi).then((value) => value.json());
   }
 
-  addBook(data) {
-    var options = {
+  async addBook(data) {
+    fetch(this.booksApi, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+          'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-    };
-
-    fetch(this.booksApi, options);
+    })
   }
 
   editBook(id, data) {

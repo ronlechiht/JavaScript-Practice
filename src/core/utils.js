@@ -12,3 +12,17 @@ export function getElement(selector) {
 
   return element;
 }
+
+/*Display an element */
+export function displayElement(className) {
+  const element = document.querySelector(className);
+
+  element.style.display = 'block';
+}
+
+/*Hide an element */
+export function hideElement(className) {
+  const element = document.querySelector(className);
+
+  element.style.display = 'none';
+}

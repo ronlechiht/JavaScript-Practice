@@ -1,6 +1,8 @@
 import {
   createElement,
+  displayElement,
   getElement,
+  hideElement,
 } from '../../core/utils.js';
 
 export class BookView {
@@ -16,9 +18,10 @@ export class BookView {
     this.modal = document.querySelector('.modal');
 
     //Get button
-    this.openBtn = document.querySelector('.open-modal-btn');
+    this.addNewBtn = document.querySelector('.add-new-btn');
     this.closeBtn = document.querySelector('.close');
     this.addButton = document.querySelector('.add-btn');
+    this.editButton = document.querySelector('.edit-btn');
 
   }
 
@@ -30,29 +33,30 @@ export class BookView {
   }
 
   renderTableView(books) {
+    while (this.bookTable.firstChild) {
+      this.bookTable.removeChild(this.bookTable.firstChild);
+    }
+
+    this.bookTable.innerHTML = `
+      <tr>
+        <th>ISBN</th>
+        <th>Name</th>
+      </tr>
+    `
+
     const html = books.map(function(book) {
       return `
-        <tr>
+        <tr id="${book.id}">
           <td>${book.isbn}</td>
           <td>${book.name}</td>
           <td><a>View Detail</a></td>
+          <td><button class="edit-book-btn">Edit</button></td>
+          <td><button class="del-book-btn">Delete</button></td>
         </tr>
       `;
     });
 
     this.bookTable.innerHTML = this.bookTable.innerHTML + html.join('');
-  }
-
-  renderAddedBook(book) {
-    const html = `
-      <tr>
-        <td>${book.isbn}</td>
-        <td>${book.name}</td>
-        <td><a>View Detail</a></td>
-      </tr>
-    `;
-
-    this.bookTable.innerHTML = this.bookTable.innerHTML + html;
   }
 
   validateForm(data) {
@@ -81,8 +85,13 @@ export class BookView {
   }
 
   bindOpenCloseModal() {
-    this.openBtn.onclick = () => {
+    this.addNewBtn.onclick = () => {
+      //Open modal box for add new book
       this.modal.style.display = 'block';
+      displayElement('.add-title');
+      displayElement('.add-btn');
+      hideElement('.edit-title');
+      hideElement('.edit-btn');
     }
 
     this.closeBtn.onclick = () => {
@@ -101,4 +110,31 @@ export class BookView {
       handler(book);
     }
   }
+
+  bindOpenEditForm(handler) {
+    this.bookTable.addEventListener('click', event => {
+      if (event.target.className === 'edit-book-btn') {
+        const id = event.target.parentElement.parentElement.id;
+
+        //Open modal box for edit book
+        this.modal.style.display = 'block';
+        displayElement('.edit-btn');
+        displayElement('.edit-title');
+        hideElement('.add-title');
+        hideElement('.add-btn');
+
+        this.editButton.onclick = () => {
+          const book = {
+            isbn: this.isbn.value,
+            name: this.name.value,
+            author: this.author.value,
+            issued: this.issued.value
+          }
+          handler(id,book);
+        }
+      }
+    })
+  }
+
+  
 }

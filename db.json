@@ -1,11 +1,3 @@
 {
-  "books": [
-    {
-      "isbn": "isbn-002",
-      "name": "Toan Cao Cap",
-      "author": "Le Chi Son",
-      "issued": "23/02/2000",
-      "id": 1
-    }
-  ]
+  "books": []
 }

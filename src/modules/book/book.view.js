@@ -136,5 +136,12 @@ export class BookView {
     })
   }
 
-  
+  bindDeleteBook(handler) {
+    this.bookTable.addEventListener('click', event => {
+      if (event.target.className === 'del-book-btn') {
+        const id = event.target.parentElement.parentElement.id;
+        handler(id);
+      }
+    })
+  }
 }

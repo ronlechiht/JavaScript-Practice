@@ -11,6 +11,7 @@ export class BookController {
     this.bookView.bindOpenCloseModal();
     this.bookView.bindAddBook(this.handleAddBook);
     this.bookView.bindOpenEditForm(this.handleEditBook);
+    this.bookView.bindDeleteBook(this.handleDeleteBook);
   }
 
   async displayBookList() {
@@ -37,5 +38,10 @@ export class BookController {
       this.bookView.resetInput();
       hideElement('.modal');
     }
+  }
+
+  handleDeleteBook = (id) => {
+    this.bookManagerModel.deleteBook(id);
+    this.displayBookList();
   }
 }

@@ -45,6 +45,6 @@ export class BookManagerModel {
       },
     };
 
-    fetch('${this.booksApi}/${id}', options);
+    fetch(this.booksApi+'/'+id, options);
   }
 }

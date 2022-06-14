@@ -1,47 +1,46 @@
 import {
-  displayElement,
   hideElement
-} from '../../core/utils.js';
+} from '../../core/utils.js'
 
 export class BookController {
-  constructor(bookManagerModel, bookView) {
-    this.bookManagerModel = bookManagerModel;
-    this.bookView = bookView;
+  constructor (bookManagerModel, bookView) {
+    this.bookManagerModel = bookManagerModel
+    this.bookView = bookView
 
-    this.bookView.bindOpenCloseModal();
-    this.bookView.bindAddBook(this.handleAddBook);
-    this.bookView.bindOpenEditForm(this.handleEditBook);
-    this.bookView.bindDeleteBook(this.handleDeleteBook);
+    this.bookView.bindOpenCloseModal()
+    this.bookView.bindAddBook(this.handleAddBook)
+    this.bookView.bindOpenEditForm(this.handleEditBook)
+    this.bookView.bindDeleteBook(this.handleDeleteBook)
   }
 
-  async displayBookList() {
+  async displayBookList () {
     try {
-      const books = await this.bookManagerModel.getBooks();
-      this.bookView.renderTableView(books);
-    } catch(error) {
-      console.log(error);
+      const books = await this.bookManagerModel.getBooks()
+      this.bookView.renderTableView(books)
+    } catch (error) {
+      console.log(error)
     }
   }
 
   handleAddBook = (book) => {
     if (this.bookView.validateForm(book)) {
-      this.bookManagerModel.addBook(book);
-      this.displayBookList();
-      this.bookView.resetInput();
+      this.bookManagerModel.addBook(book)
+      this.displayBookList()
+      this.bookView.resetInput()
     }
   }
 
-  handleEditBook = (id,book) => {
+  handleEditBook = (id, book) => {
     if (this.bookView.validateForm(book)) {
-      this.bookManagerModel.editBook(id,book);
-      this.displayBookList();
-      this.bookView.resetInput();
-      hideElement('.modal');
+      this.bookManagerModel.editBook(id, book)
+      this.displayBookList()
+      this.bookView.resetInput()
+      hideElement('.modal')
     }
   }
 
   handleDeleteBook = (id) => {
-    this.bookManagerModel.deleteBook(id);
-    this.displayBookList();
+    this.bookManagerModel.deleteBook(id)
+    this.displayBookList()
   }
 }

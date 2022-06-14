@@ -10,6 +10,8 @@ export class BookController {
 
     this.bookView.bindOpenCloseModal();
     this.bookView.bindAddBook(this.handleAddBook);
+    this.bookView.bindOpenEditForm(this.handleEditBook);
+    this.bookView.bindDeleteBook(this.handleDeleteBook);
   }
 
   async displayBookList() {
@@ -24,8 +26,22 @@ export class BookController {
   handleAddBook = (book) => {
     if (this.bookView.validateForm(book)) {
       this.bookManagerModel.addBook(book);
-      this.bookView.renderAddedBook(book);
+      this.displayBookList();
       this.bookView.resetInput();
     }
+  }
+
+  handleEditBook = (id,book) => {
+    if (this.bookView.validateForm(book)) {
+      this.bookManagerModel.editBook(id,book);
+      this.displayBookList();
+      this.bookView.resetInput();
+      hideElement('.modal');
+    }
+  }
+
+  handleDeleteBook = (id) => {
+    this.bookManagerModel.deleteBook(id);
+    this.displayBookList();
   }
 }

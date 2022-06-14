@@ -28,15 +28,13 @@ export class BookManagerModel {
   }
 
   editBook(id, data) {
-    var options = {
+    fetch(this.booksApi+'/'+id, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-    };
-
-    fetch('${this.booksApi}/${id}', options);
+    });
   } 
 
   deleteBook(id) {
@@ -47,6 +45,6 @@ export class BookManagerModel {
       },
     };
 
-    fetch('${this.booksApi}/${id}', options);
+    fetch(this.booksApi+'/'+id, options);
   }
 }

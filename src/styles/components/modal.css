@@ -36,3 +36,32 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.inputs-field {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 10px;
+}
+
+.input-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.input-label {
+  text-transform: capitalize;
+}
+
+.add-title,
+.edit-title {
+  text-transform: capitalize;
+  font-size: 30px;
+  color: #0000ff;
+}
+
+.add-btn,
+.edit-btn {
+  margin: 20px auto 0px auto;
+  text-transform: capitalize;
+}

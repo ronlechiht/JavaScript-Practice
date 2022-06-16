@@ -17,6 +17,10 @@ export class BookManagerModel {
     return fetch(this.booksApi).then((value) => value.json())
   }
 
+  async getBook (id) {
+    const books = fetch(this.booksApi).then((value) => value.json())
+  }
+
   async addBook (data) {
     fetch(this.booksApi, {
       method: 'POST',

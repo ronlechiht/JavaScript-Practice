@@ -22,7 +22,7 @@
           </form>
           <button class="btn add-new-btn">add new</button>
         </div>
-        <div class="modal">
+        <div class="modal add-edit-modal">
           <div class="book-management-add-new modal-content">
             <span class="close">&times;</span>
             <h2 class="add-title">book management add new</h2>
@@ -47,6 +47,30 @@
             </div>
             <button class="add-btn">add</button>
             <button class="edit-btn">edit</button>
+          </div>
+        </div>
+        <div class="modal view-detail-modal">
+          <div class="modal-content">
+            <span class="close close-view-detail">&times;</span>
+            <h2 class="view-detail-title">book view</h2>
+            <div class="infor-fields">
+              <div class="infor-item">
+                <label for="isbn-infor" class="infor-label">isbn</label>
+                <p name="isbn-infor"></p>
+              </div>
+              <div class="infor-item">
+                <label for="name-infor" class="info-label">name</label>
+                <p name="name-infor"></p>
+              </div>
+              <div class="infor-item">
+                <label for="author-infor" class="infor-label">publisher</label>
+                <p name="author-infor"></p>
+              </div>
+              <div class="infor-item">
+                <label for="issued-infor" class="infor-label">issued date</label>
+                <p name="issued-infor"></p>
+              </div>
+            </div>
           </div>
         </div>
         <table class="book-management-table"></table>

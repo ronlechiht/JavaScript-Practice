@@ -1,3 +1,11 @@
 {
-  "books": []
+  "books": [
+    {
+      "isbn": "ISBN-001",
+      "name": "TOÁN RỜI RẠC",
+      "author": "LÊ CHÍ RÔN",
+      "issued": "28/06/1998",
+      "id": 1
+    }
+  ]
 }

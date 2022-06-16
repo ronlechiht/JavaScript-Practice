@@ -37,6 +37,8 @@
   cursor: pointer;
 }
 
+
+/* Add, edit modal box */
 .inputs-field {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -65,3 +67,5 @@
   margin: 20px auto 0px auto;
   text-transform: capitalize;
 }
+
+/* View Detail modal box */

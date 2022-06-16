@@ -12,34 +12,46 @@
   </head>
 
   <body>
-    <div class="book-management">
-      <h2 class="book-management-title">book management</h2>
-      <div class="book-management-top-bar">
-        <form class="search-form">
-          <input type="text" placeholder="Search by ISBN" name="search" class="search-input">
-          <button class="search-btn">search</button>
-        </form>
-        <button class="add-new-btn">add new</button>
-      </div>
-      <div class="modal">
-        <div class="book-management-add-new modal-content">
-          <span class="close">&times;</span>
-          <h2 class="add-title">book management add new</h2>
-          <h2 class="edit-title">book management edit book</h2>
-          <label for="isbn-input">isbn</label>
-          <input type="text" name="isbn-input">
-          <label for="name-input">name</label>
-          <input type="text" name="name-input">
-          <label for="author-input">author</label>
-          <input type="text" name="author-input">
-          <label for="issued-input">issued date</label>
-          <input type="text" name="issued-input">
-          <button class="add-btn">add</button>
-          <button class="edit-btn">edit</button>
+    <main class="container">
+      <div class="book-management">
+        <h2 class="book-management-title">book management</h2>
+        <div class="book-management-top-bar">
+          <form class="search-form">
+            <input type="text" placeholder="Search by ISBN" name="search" class="search-input">
+            <button class="btn search-btn">search</button>
+          </form>
+          <button class="btn add-new-btn">add new</button>
         </div>
+        <div class="modal">
+          <div class="book-management-add-new modal-content">
+            <span class="close">&times;</span>
+            <h2 class="add-title">book management add new</h2>
+            <h2 class="edit-title">book management edit book</h2>
+            <div class="inputs-field">
+              <div class="input-item">
+                <label for="isbn-input" class="input-label">isbn</label>
+                <input type="text" name="isbn-input">
+              </div>
+              <div class="input-item">
+                <label for="name-input" class="input-label">name</label>
+                <input type="text" name="name-input">
+              </div>
+              <div class="input-item">
+                <label for="author-input" class="input-label">author</label>
+                <input type="text" name="author-input">
+              </div>
+              <div class="input-item">
+                <label for="issued-input" class="input-label">issued date</label>
+                <input type="text" name="issued-input">
+              </div>
+            </div>
+            <button class="add-btn">add</button>
+            <button class="edit-btn">edit</button>
+          </div>
+        </div>
+        <table class="book-management-table"></table>
       </div>
-      <table class="book-management-table"></table>
-    </div>
-    <div class="borrowing-returning-management"></div>
+      <div class="borrowing-returning-management"></div>
+    </main>
   </body>
 </html>

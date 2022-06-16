@@ -1,0 +1,53 @@
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.book-management {
+  padding-top: 20px;
+}
+
+.book-management-title {
+  text-transform: capitalize;
+  font-size: 30px;
+  color: #0000ff;
+}
+
+.book-management-top-bar {
+  display: flex;
+  column-gap: 20px;
+}
+
+.search-input {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 5px;
+}
+
+.search-input::placeholder {
+  padding-left: 5px;
+}
+
+.search-btn {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 5px;
+}
+
+.add-new-btn {
+  border-radius: 10px;
+}
+
+.book-management-table {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.book-management-table>tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.table-header {
+  background-color: #c0c0c0;
+}

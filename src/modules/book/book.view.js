@@ -35,9 +35,12 @@ export class BookView {
     }
 
     this.bookTable.innerHTML = `
-      <tr>
+      <tr class="table-header"  >
         <th>ISBN</th>
         <th>Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
     `
 

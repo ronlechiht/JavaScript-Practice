@@ -10,6 +10,7 @@ export class BookController {
     this.bookView.bindOpenAddModal()
     this.bookView.bindCloseAddModal()
     this.bookView.bindAddBook(this.handleAddBook)
+    this.bookView.bindViewDetailBook(this.handleViewDetailBook)
     this.bookView.bindOpenEditForm(this.handleEditBook)
     this.bookView.bindDeleteBook(this.handleDeleteBook)
   }

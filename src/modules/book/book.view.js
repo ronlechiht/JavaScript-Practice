@@ -13,11 +13,11 @@ export class BookView {
 
     // Get table book and add book modal box
     this.bookTable = document.querySelector('.book-management-table')
-    this.modal = document.querySelector('.modal')
+    this.addModal = document.querySelector('.add-modal')
 
     // Get button
     this.addNewBtn = document.querySelector('.add-new-btn')
-    this.closeBtn = document.querySelector('.close')
+    this.closeBtn = document.querySelector('.close-add-modal')
     this.addButton = document.querySelector('.add-btn')
     this.editButton = document.querySelector('.edit-btn')
   }
@@ -39,8 +39,6 @@ export class BookView {
         <th>ISBN</th>
         <th>Name</th>
         <th></th>
-        <th></th>
-        <th></th>
       </tr>
     `
 
@@ -50,8 +48,6 @@ export class BookView {
           <td>${book.isbn}</td>
           <td>${book.name}</td>
           <td><a>View Detail</a></td>
-          <td><button class="edit-book-btn">Edit</button></td>
-          <td><button class="del-book-btn">Delete</button></td>
         </tr>
       `
     })
@@ -84,18 +80,15 @@ export class BookView {
     return isValidated
   }
 
-  bindOpenCloseModal () {
+  bindOpenAddModal () {
     this.addNewBtn.onclick = () => {
-      // Open modal box for add new book
-      this.modal.style.display = 'block'
-      displayElement('.add-title')
-      displayElement('.add-btn')
-      hideElement('.edit-title')
-      hideElement('.edit-btn')
+      this.addModal.style.display = 'block'
     }
+  }
 
+  bindCloseAddModal () {
     this.closeBtn.onclick = () => {
-      this.modal.style.display = 'none'
+      this.addModal.style.display = 'none'
     }
   }
 

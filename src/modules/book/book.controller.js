@@ -7,7 +7,8 @@ export class BookController {
     this.bookManagerModel = bookManagerModel
     this.bookView = bookView
 
-    this.bookView.bindOpenCloseModal()
+    this.bookView.bindOpenAddModal()
+    this.bookView.bindCloseAddModal()
     this.bookView.bindAddBook(this.handleAddBook)
     this.bookView.bindOpenEditForm(this.handleEditBook)
     this.bookView.bindDeleteBook(this.handleDeleteBook)

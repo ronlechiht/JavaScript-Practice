@@ -1,11 +1,4 @@
 {
   "books": [
-    {
-      "isbn": "isbn-001",
-      "name": "Toan Roi Rac",
-      "author": "Le Chi Ron",
-      "issued": "28/06/1998",
-      "id": 1
-    }
   ]
 }

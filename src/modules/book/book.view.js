@@ -22,6 +22,11 @@ export class BookView {
     this.closeViewDetailBtn = document.querySelector('.close-view-detail')
     this.addButton = document.querySelector('.add-btn')
     this.editButton = document.querySelector('.edit-btn')
+
+    this.isbnField = document.querySelector('.isbn-field')
+    this.nameField = document.querySelector('.name-field')
+    this.authorField = document.querySelector('.author-field')
+    this.issuedField = document.querySelector('.issued-field')
   }
 
   resetInput () {
@@ -95,7 +100,7 @@ export class BookView {
   }
 
   bindCloseViewDetailModal () {
-    this.closeViewDetailModalBtn.onclick = () => {
+    this.closeViewDetailBtn.onclick = () => {
       this.detailModal.style.display = 'none'
     }
   }
@@ -115,12 +120,19 @@ export class BookView {
   bindViewDetailBook (handler) {
     this.bookTable.addEventListener('click', event => {
       if (event.target.className === 'view-detail') {
-        const id = event.target.parentElement.parentElement.id
+        const id = parseInt(event.target.parentElement.parentElement.id)
 
         this.detailModal.style.display = 'block'
         handler(id)
       }
     })
+  }
+
+  fillInforBook (book) {
+    this.isbnField.value = book.isbn
+    this.nameField.value = book.name
+    this.authorField.value = book.author
+    this.issuedField.value = book.issued
   }
 
   bindOpenEditForm (handler) {

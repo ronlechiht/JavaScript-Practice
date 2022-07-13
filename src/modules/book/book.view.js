@@ -13,13 +13,20 @@ export class BookView {
 
     // Get table book and add book modal box
     this.bookTable = document.querySelector('.book-management-table')
-    this.modal = document.querySelector('.modal')
+    this.addModal = document.querySelector('.add-modal')
+    this.detailModal = document.querySelector('.view-detail-modal')
 
     // Get button
     this.addNewBtn = document.querySelector('.add-new-btn')
-    this.closeBtn = document.querySelector('.close')
+    this.closeAddModalBtn = document.querySelector('.close-add-modal')
+    this.closeViewDetailBtn = document.querySelector('.close-view-detail')
     this.addButton = document.querySelector('.add-btn')
     this.editButton = document.querySelector('.edit-btn')
+
+    this.isbnField = document.querySelector('.isbn-field')
+    this.nameField = document.querySelector('.name-field')
+    this.authorField = document.querySelector('.author-field')
+    this.issuedField = document.querySelector('.issued-field')
   }
 
   resetInput () {
@@ -39,8 +46,6 @@ export class BookView {
         <th>ISBN</th>
         <th>Name</th>
         <th></th>
-        <th></th>
-        <th></th>
       </tr>
     `
 
@@ -49,9 +54,7 @@ export class BookView {
         <tr id="${book.id}">
           <td>${book.isbn}</td>
           <td>${book.name}</td>
-          <td><a>View Detail</a></td>
-          <td><button class="edit-book-btn">Edit</button></td>
-          <td><button class="del-book-btn">Delete</button></td>
+          <td><a class="view-detail">View Detail</a></td>
         </tr>
       `
     })
@@ -84,18 +87,21 @@ export class BookView {
     return isValidated
   }
 
-  bindOpenCloseModal () {
+  bindOpenAddModal () {
     this.addNewBtn.onclick = () => {
-      // Open modal box for add new book
-      this.modal.style.display = 'block'
-      displayElement('.add-title')
-      displayElement('.add-btn')
-      hideElement('.edit-title')
-      hideElement('.edit-btn')
+      this.addModal.style.display = 'block'
     }
+  }
 
-    this.closeBtn.onclick = () => {
-      this.modal.style.display = 'none'
+  bindCloseAddModal () {
+    this.closeAddModalBtn.onclick = () => {
+      this.addModal.style.display = 'none'
+    }
+  }
+
+  bindCloseViewDetailModal () {
+    this.closeViewDetailBtn.onclick = () => {
+      this.detailModal.style.display = 'none'
     }
   }
 
@@ -109,6 +115,24 @@ export class BookView {
       }
       handler(book)
     }
+  }
+
+  bindViewDetailBook (handler) {
+    this.bookTable.addEventListener('click', event => {
+      if (event.target.className === 'view-detail') {
+        const id = parseInt(event.target.parentElement.parentElement.id)
+
+        this.detailModal.style.display = 'block'
+        handler(id)
+      }
+    })
+  }
+
+  fillInforBook (book) {
+    this.isbnField.value = book.isbn
+    this.nameField.value = book.name
+    this.authorField.value = book.author
+    this.issuedField.value = book.issued
   }
 
   bindOpenEditForm (handler) {

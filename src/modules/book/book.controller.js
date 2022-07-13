@@ -7,8 +7,11 @@ export class BookController {
     this.bookManagerModel = bookManagerModel
     this.bookView = bookView
 
-    this.bookView.bindOpenCloseModal()
+    this.bookView.bindOpenAddModal()
+    this.bookView.bindCloseAddModal()
+    this.bookView.bindCloseViewDetailModal()
     this.bookView.bindAddBook(this.handleAddBook)
+    this.bookView.bindViewDetailBook(this.handleViewDetailBook)
     this.bookView.bindOpenEditForm(this.handleEditBook)
     this.bookView.bindDeleteBook(this.handleDeleteBook)
   }
@@ -28,6 +31,12 @@ export class BookController {
       this.displayBookList()
       this.bookView.resetInput()
     }
+  }
+
+  handleViewDetailBook = async (id) => {
+    const books = await this.bookManagerModel.getBooks()
+    const book = books.find(book => book.id === id)
+    this.bookView.fillInforBook(book)
   }
 
   handleEditBook = (id, book) => {

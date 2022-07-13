@@ -37,23 +37,27 @@
   cursor: pointer;
 }
 
-.inputs-field {
+.inputs-field,
+.infor-fields {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 20px;
   row-gap: 10px;
 }
 
-.input-item {
+.input-item,
+.infor-item {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.input-label {
+.input-label,
+.infor-label {
   text-transform: capitalize;
 }
 
 .add-title,
+.view-detail-title,
 .edit-title {
   text-transform: capitalize;
   font-size: 30px;

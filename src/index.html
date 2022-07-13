@@ -22,11 +22,10 @@
           </form>
           <button class="btn add-new-btn">add new</button>
         </div>
-        <div class="modal">
-          <div class="book-management-add-new modal-content">
-            <span class="close">&times;</span>
+        <div class="modal add-modal">
+          <div class="modal-content">
+            <span class="close close-add-modal">&times;</span>
             <h2 class="add-title">book management add new</h2>
-            <h2 class="edit-title">book management edit book</h2>
             <div class="inputs-field">
               <div class="input-item">
                 <label for="isbn-input" class="input-label">isbn</label>
@@ -46,7 +45,30 @@
               </div>
             </div>
             <button class="add-btn">add</button>
-            <button class="edit-btn">edit</button>
+          </div>
+        </div>
+        <div class="modal view-detail-modal">
+          <div class="modal-content">
+            <span class="close close-view-detail">&times;</span>
+            <h2 class="view-detail-title">book view</h2>
+            <div class="infor-fields">
+              <div class="infor-item">
+                <label for="isbn-infor" class="infor-label">isbn</label>
+                <input type="text" name="isbn-infor" class="isbn-field">
+              </div>
+              <div class="infor-item">
+                <label for="name-infor" class="infor-label">name</label>
+                <input type="text" name="name-infor" class="name-field">
+              </div>
+              <div class="infor-item">
+                <label for="author-infor" class="infor-label">publisher</label>
+                <input type="text" name="author-infor" class="author-field">
+              </div>
+              <div class="infor-item">
+                <label for="issued-infor" class="infor-label">issued date</label>
+                <input type="text" name="issued-infor" class="issued-field">
+              </div>
+            </div>
           </div>
         </div>
         <table class="book-management-table"></table>
